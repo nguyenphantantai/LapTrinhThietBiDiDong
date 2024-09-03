@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymnastics Challenge</title>
+</head>
+<body>
+    <h1>Gymnastics Teams Challenge</h1>
+    <script>
+        
+        const calcAverage = (scores) => scores.reduce((a, b) => a + b, 0) / scores.length;
+    
+        
+        const data1Dolphins = [44, 23, 71];
+        const data1Koalas = [65, 54, 49];
+        const data2Dolphins = [85, 54, 41];
+        const data2Koalas = [23, 34, 27];
+    
+        const avgData1Dolphins = calcAverage(data1Dolphins);
+        const avgData1Koalas = calcAverage(data1Koalas);
+        const avgData2Dolphins = calcAverage(data2Dolphins);
+        const avgData2Koalas = calcAverage(data2Koalas);
+    
+        
+        const checkWinner = (avgDolphins, avgKoalas) => {
+          if (avgDolphins >= 2 * avgKoalas) {
+            console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+          } else if (avgKoalas >= 2 * avgDolphins) {
+            console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+          } else {
+            console.log("No team wins!");
+          }
+        };
+    
+        
+        checkWinner(avgData1Dolphins, avgData1Koalas);
+        checkWinner(avgData2Dolphins, avgData2Koalas);
+        </script>
+</body>
+</html>

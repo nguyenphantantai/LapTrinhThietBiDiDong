@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+let tips = [];
+let totals = [];
+
+// Hàm tính tiền boa
+function calcTip(bill) {
+  if (bill < 300) {
+    return bill * 0.2;
+  } else {
+    return bill * 0.1;
+  }
+}
+
+// Sử dụng hàm 'calcTip' để tính tiền boa và tổng tiền cho mỗi giá trị trong mảng 'bills'
+for (let i = 0; i < bills.length; i++) {
+  let tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(bills[i] + tip);
+}
+
+// Hàm tính trung bình của các số trong mảng
+function calcAverage(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+
+// Gọi hàm 'calcAverage' với mảng 'totals'
+let averageTotal = calcAverage(totals);
+console.log(`Trung bình tổng tiền: ${averageTotal}`);
+
+
+
+    </script>
+</body>
+</html>

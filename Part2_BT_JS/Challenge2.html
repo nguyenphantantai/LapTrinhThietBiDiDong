@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tip Calculator</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tip Calculator</h1>
+  <table>
+    <tr>
+      <th>Bill</th>
+      <th>Tip</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td id="tip-0"></td>
+      <td id="total-0"></td>
+    </tr>
+    <tr>
+      <td>555</td>
+      <td id="tip-1"></td>
+      <td id="total-1"></td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td id="tip-2"></td>
+      <td id="total-2"></td>
+    </tr>
+  </table>
+
+  <script>
+    const bills = [125, 555, 44];
+    const tips = bills.map(bill => calcTip(bill));
+    const total = bills.map((bill, index) => bill + tips[index]);
+
+    function calcTip(bill) {
+      if (bill >= 50 && bill <= 300) {
+        return bill * 0.15;
+      } else {
+        return bill * 0.20;
+      }
+    }
+
+    document.getElementById("tip-0").innerHTML = tips[0];
+    document.getElementById("tip-1").innerHTML = tips[1];
+    document.getElementById("tip-2").innerHTML = tips[2];
+
+    document.getElementById("total-0").innerHTML = total[0];
+    document.getElementById("total-1").innerHTML = total[1];
+    document.getElementById("total-2").innerHTML = total[2];
+  </script>
+</body>
+</html>
